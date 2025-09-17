@@ -19,36 +19,42 @@ The analysis explores **daily activity, sleep, and weight** data for 30 voluntee
 ```bash
 bellabeat-capstone/
 │
+├── analysis/
+│   └── r/                  # R scripts
+│       ├── process_data.R   # Data cleaning
+│       ├── analyze_data.R   # Exploratory analysis (EDA)
+│       └── make_samples.R   # Create lightweight sample datasets
+│
 ├── data/
-│   ├── raw/              # Original Fitbit dataset (Fitabase export 2016)
-│   ├── cleaned/          # Cleaned datasets (CSV)
-│   └── processed/        # Optional aggregated files
+│   ├── raw/                # Raw Fitbit datasets (ignored by Git)
+│   ├── cleaned/            # Cleaned datasets (ignored, except *.sample.csv)
+│   │   ├── dailyActivity.sample.csv
+│   │   ├── sleep.sample.csv
+│   │   └── weight.sample.csv
+│   └── dictionary/         # Data dictionary (optional)
 │
 ├── docs/
-│   ├── cleaning-log.md   # Data cleaning documentation
-│   ├── limitations.md    # Dataset limitations
-│   └── references.md     # Sources & citations (optional)
+│   ├── cleaning-log.md     # Data cleaning documentation
+│   ├── limitations.md      # Dataset limitations
+│   └── references.md       # Sources & citations (optional)
 │
 ├── report/
 │   ├── draft/
-│   │   └── analysis-notes.md   # Exploration notes
+│   │   └── analysis-notes.md
 │   ├── final/
-│   │   ├── capstone_report.md  # Final written report
-│   │   └── key_takeaways.md    # 1-page summary version
-│   └── summary_tables.md       # Summary stats tables
-│
-├── scripts/
-│   ├── cleaning.R        # Data cleaning scripts
-│   ├── analysis.R        # Analysis scripts
-│   └── visualization.R   # Plot generation
+│   │   ├── capstone_report.md
+│   │   └── key_takeaways.md
+│   └── summary_tables.md
 │
 ├── visuals/
-│   ├── activity/         # Steps, calories, sedentary plots
-│   ├── sleep/            # Sleep efficiency plots
-│   ├── weight/           # BMI distribution
-│   └── cross/            # Cross-analysis (steps vs sleep, etc.)
+│   ├── activity/           # Steps, calories, sedentary plots
+│   ├── sleep/              # Sleep efficiency plots
+│   ├── weight/             # BMI distribution
+│   └── cross/              # Cross-analysis (steps vs sleep, etc.)
 │
-└── README.md             # This file
+├── .gitignore
+├── README.md
+└── bellabeat-capstone.Rproj
 
 ---
 
