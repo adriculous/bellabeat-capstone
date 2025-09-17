@@ -69,6 +69,18 @@ bellabeat-capstone/
 
 ---
 
+### 📂 Sample Data
+To keep this repo lightweight, only small preview samples of the cleaned datasets are included here:  
+
+- [dailyActivity.sample.csv](data/cleaned/dailyActivity.sample.csv)  
+- [sleep.sample.csv](data/cleaned/sleep.sample.csv)  
+- [weight.sample.csv](data/cleaned/weight.sample.csv)  
+
+⚠️ The full raw and cleaned datasets are excluded due to size. You can access the complete Fitbit dataset from the original Kaggle source:  
+👉 [Fitbit Fitness Tracker Data on Kaggle](https://www.kaggle.com/arashnic/fitbit)
+
+---
+
 ## 📊 Deliverables
 - Final Report
 - Key Takeaways Summary
