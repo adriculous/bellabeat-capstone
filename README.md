@@ -11,7 +11,18 @@ This is my final capstone project for the **Google Data Analytics Specialization
 
 The project analyzes Fitbit fitness tracker data to identify wellness trends and propose new opportunities for **Bellabeat**, a women’s health and wellness technology company headquartered in San Francisco, CA (with an additional office in Zagreb, Croatia).  
 
-The analysis explores **daily activity, sleep, and weight** data for 30 volunteer Fitbit users over a two-month period in 2016. Based on the findings, I developed recommendations for how Bellabeat could expand its product features to better support dieting individuals, diabetics, and pregnant women.
+The analysis explores **daily activity, sleep, and weight** data for 30 volunteer Fitbit users over a two-month period in 2016. Based on the findings, I developed recommendations for how Bellabeat could expand its product features to better support dieting individuals, diabetics, and pregnant women (including gestational diabetes).
+
+---
+
+## 📊 Bellabeat Capstone Presentation
+This project includes both a detailed written report and a slide deck with speaker notes.
+
+- 📝 [Final Report](report/final/capstone_report.md)  
+- 🔑 [Key Takeaways](report/final/key_takeaways.md)  
+- 🎤 [Speaker Notes](report/final/speaker_notes.md)  
+- 📑 [Slides (PDF)](report/final/bellabeat_slides.pdf)  
+- 🌐 [Google Slides Deck](https://docs.google.com/presentation/d/1BQVG1u87U-pJDoI8qBH8xYd1BIni62HvT4QYCDeANN8/edit?usp=sharing)  
 
 ---
 
@@ -43,7 +54,8 @@ bellabeat-capstone/
 │   │   └── analysis-notes.md
 │   ├── final/
 │   │   ├── capstone_report.md
-│   │   └── key_takeaways.md
+│   │   ├── key_takeaways.md
+│   │   └── speaker_notes.md
 │   └── summary_tables.md
 │
 ├── visuals/
@@ -68,10 +80,12 @@ bellabeat-capstone/
 ---
 
 ## 💡 Recommendations
-- Add nutrition and sugar intake logging to Bellabeat products.
-- Integrate with glucose meters (e.g., Kaiser Permanente’s KP Health Ally with OneTouch Verio).
-- Expand the Ivy+ product with enhanced pregnancy support.
-- Explore specialized devices such as Leaf Diabetic, potentially doctor-prescribed.
+- Add **nutrition and sugar intake logging** to Bellabeat products.
+- Integrate with **glucose meters** (e.g., Kaiser Permanente’s KP Health Ally with OneTouch Verio).
+    - Enable automatic sharing with doctors/dietitians.
+    - Support **A1C uploads** for longitudinal tracking.
+- Expand the **IVY+ product** with enhanced pregnancy support, including gestational diabetes features.
+- Explore **specialized devices such** as *Leaf Diabetic*, potentially doctor-prescribed.
 
 ---
 
@@ -103,4 +117,6 @@ To keep this repo lightweight, only small preview samples of the cleaned dataset
 ---
 
 ## 🎯 Big Picture
-This project highlights the blind spots in wearable health data (nutrition, sugar intake, A1C) and demonstrates how Bellabeat could expand from activity and sleep tracking into holistic women’s health and digital therapeutics.
+This project highlights the blind spots in wearable health data (nutrition, sugar intake, A1C) and demonstrates how Bellabeat could expand from activity and sleep tracking into **holistic women’s health and digital therapeutics**.
+
+By bridging wellness tracking with medical integration, Bellabeat can position itself at the intersection of **consumer health + digital healthcare**.
