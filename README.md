@@ -67,6 +67,7 @@ bellabeat-capstone/
 ├── .gitignore
 ├── README.md
 └── bellabeat-capstone.Rproj
+```
 
 ---
 
