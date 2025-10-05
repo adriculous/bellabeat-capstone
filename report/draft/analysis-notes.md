@@ -55,14 +55,18 @@ Balance matters — it’s not just about steps, but also sleep and recovery.
 
 ---
 
-## Product Opportunity
+### Product Opportunity
 Bellabeat could:
 - Add **nutrition logging** (manual input, barcode scanning, or food app integrations).  
 - Track **sugar intake** and integrate directly with glucose meters.  
   - Example: Kaiser Permanente’s **KP Health Ally** app integrates with the OneTouch Verio glucose meter so that readings are synced automatically.  
   - This integration allows not only the user but also their **doctor, pharmacist, and dietitian** to access and monitor the data.  
   - Bellabeat could adopt a similar approach: sync readings via connected apps/APIs, and optionally support **A1C data uploads** from healthcare providers.  
-- Offer **pregnancy mode** with adjusted recommendations (sedentary reminders, healthy weight guidance, sleep support).  
+- Expand the existing **Ivy+** product line:  
+  - Enhance pregnancy tracking with **sleep, nutrition, and weight guidance**.  
+- **Optional expansion:** Develop specialized devices tailored for other conditions, such as *Leaf Diabetic*.  
+  - These could be **doctor-prescribed** or available as add-ons.  
+  - Position Bellabeat in the **digital health / medtech space**, bridging consumer wellness and clinical care.  
 
 ---
 

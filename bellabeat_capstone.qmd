@@ -1,0 +1,127 @@
+---
+title: "Bellabeat Capstone Case Study"
+author: "Adrianne Padua"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-fold: show
+execute:
+  freeze: auto
+---
+
+# Introduction
+
+This capstone project analyzes smart device usage data to explore health behaviors and trends among Bellabeat users.
+
+Bellabeat is a high-tech company that manufactures health-focused smart products, specifically designed for women. The goal is to derive actionable insights that support Bellabeat's marketing strategies to further enhance their models, such as the **Leaf** series and **IVY+**.
+
+# About the Data
+
+The dataset used in this case study is the **FitBit Fitness Tracker Data** (2016), publicly available on [Kaggle](https://www.kaggle.com/datasets/arashnic/fitbit).
+
+It includes 30 participants and provides daily activity, sleep tracking, and weight logs. Though limited in sample size and collection year, it is useful for exploratory analysis.
+
+```{r}
+#| label: load-libraries
+#| message: false
+library(tidyverse)
+library(lubridate)
+
+daily_activity <- read_csv("data/cleaned/dailyActivity_all.csv")
+sleep_data    <- read_csv("data/cleaned/sleep_all.csv")
+weight_data   <- read_csv("data/cleaned/weight_all.csv")
+
+glimpse(daily_activity)
+```
+
+# Data Cleaning
+
+The following steps were applied during data cleaning:
+
+- Checked for missing or null values
+- Converted date columns into proper `Date` format
+- Removed duplicates
+- Filtered users with complete activity and sleep logs
+- Merged relevant tables for deeper insights
+
+```{r}
+# Convert ActivityDate only if not already a Date
+if (!inherits(daily_activity$ActivityDate, "Date")) {
+  daily_activity <- daily_activity %>%
+    mutate(ActivityDate = as.Date(ActivityDate, format = "%Y-%m-%d"))
+}
+```
+
+# Analysis
+
+## Daily Activity Trends
+
+```{r}
+daily_summary <- daily_activity %>%
+  summarise(
+    avg_steps = mean(TotalSteps, na.rm=TRUE),
+    avg_calories = mean(Calories, na.rm=TRUE)
+  )
+daily_summary
+```
+
+**Key Observations:**
+
+- The average user logged fewer than the recommended **10,000 steps per day**.
+- Sedentary minutes were high across most users, suggesting long inactive periods.
+- Calories burned correlated with step count and active minutes.
+
+## Sleep Behavior
+
+```{r}
+sleep_summary <- sleep_data %>%
+  summarise(
+    avg_minutes_asleep = mean(TotalMinutesAsleep, na.rm=TRUE),
+    avg_time_in_bed = mean(TotalTimeInBed, na.rm=TRUE)
+  )
+sleep_summary
+```
+
+**Key Observations:**
+
+- Many users were in bed longer than they were asleep, indicating **low sleep efficiency**.
+- The average user slept **about 6.9 hours**, below the **CDC’s recommended 7+ hours** for adults.
+
+## Weight and Activity
+
+- Fewer participants logged weight data, limiting analysis.
+- Those who did often showed irregular tracking behavior.
+- There's potential to **encourage habit-building** for long-term fitness goals.
+
+# Insights
+
+- Users are not consistently meeting physical activity recommendations.
+- Sedentary behavior dominates most user profiles.
+- Sleep patterns are inconsistent, and sleep tracking could benefit from deeper analysis.
+- Data logging (especially weight) is inconsistent, which limits feedback effectiveness.
+
+# Recommendations
+
+1. **Nutrition & Sugar Intake Logging**  
+   Expand the Bellabeat app to allow **manual logging of nutrition and sugar intake**, helping users monitor how their diet affects their health goals.
+
+2. **Integration with Glucose Meters**  
+   Add support for third-party glucose monitoring devices (e.g., **OneTouch Verio**), inspired by existing solutions like **Kaiser Permanente’s KP Health Ally app**. This feature can help diabetic users (like myself) track patterns more holistically.
+
+3. **Expanded Pregnancy & Postpartum Support for Ivy+**  
+   Enhance the **IVY+** smart wearable with features tailored to **pregnant and postpartum users**, such as gentle movement goals, hydration reminders, and sleep tracking optimized for these stages of life.
+
+4. **Condition-Specific Product Innovations**  
+   Consider designing **specialized Leaf devices** (e.g., *Leaf Diabetic*) aimed at chronic conditions. These could be developed in collaboration with healthcare providers and even prescribed as part of digital wellness programs.
+
+5. **Data-Driven Behavior Nudges**  
+   Incorporate personalized **AI-based nudges** in the Bellabeat ecosystem to encourage positive habits—like hitting step goals, improving sleep hygiene, or managing sugar intake.
+
+# Conclusion
+
+While the dataset had limitations (small sample, 2016 data), the findings provide useful direction for Bellabeat’s product and marketing teams.  
+
+By focusing on improving **sleep feedback**, **daily movement**, and **user engagement**, Bellabeat can better tailor its offerings to support women’s health and wellness habits through its smart products.
