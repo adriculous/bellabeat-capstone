@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Adrianne Padua">
-<meta name="dcterms.date" content="2025-09-20">
+<meta name="dcterms.date" content="2025-10-05">
 
 <title>Bellabeat Capstone Case Study</title>
 <style>
@@ -85,12 +85,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">2</span> Data</a></li>
+  <li><a href="#about-the-data" id="toc-about-the-data" class="nav-link" data-scroll-target="#about-the-data"><span class="header-section-number">2</span> About the Data</a></li>
   <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning"><span class="header-section-number">3</span> Data Cleaning</a></li>
   <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis"><span class="header-section-number">4</span> Analysis</a>
   <ul class="collapse">
-  <li><a href="#daily-activity" id="toc-daily-activity" class="nav-link" data-scroll-target="#daily-activity"><span class="header-section-number">4.1</span> Daily Activity</a></li>
-  <li><a href="#sleep-patterns" id="toc-sleep-patterns" class="nav-link" data-scroll-target="#sleep-patterns"><span class="header-section-number">4.2</span> Sleep Patterns</a></li>
+  <li><a href="#daily-activity-trends" id="toc-daily-activity-trends" class="nav-link" data-scroll-target="#daily-activity-trends"><span class="header-section-number">4.1</span> Daily Activity Trends</a></li>
+  <li><a href="#sleep-behavior" id="toc-sleep-behavior" class="nav-link" data-scroll-target="#sleep-behavior"><span class="header-section-number">4.2</span> Sleep Behavior</a></li>
+  <li><a href="#weight-and-activity" id="toc-weight-and-activity" class="nav-link" data-scroll-target="#weight-and-activity"><span class="header-section-number">4.3</span> Weight and Activity</a></li>
   </ul></li>
   <li><a href="#insights" id="toc-insights" class="nav-link" data-scroll-target="#insights"><span class="header-section-number">5</span> Insights</a></li>
   <li><a href="#recommendations" id="toc-recommendations" class="nav-link" data-scroll-target="#recommendations"><span class="header-section-number">6</span> Recommendations</a></li>
@@ -119,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 20, 2025</p>
+      <p class="date">October 5, 2025</p>
     </div>
   </div>
   
@@ -133,13 +134,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
-<p>This report explores smart device usage data to analyze consumer health trends.<br>
-The focus is on <strong>Bellabeat</strong>, a high-tech company that manufactures health-focused smart products for women.</p>
+<p>This capstone project analyzes smart device usage data to explore health behaviors and trends among Bellabeat users.</p>
+<p>Bellabeat is a high-tech company that manufactures health-focused smart products, specifically designed for women. The goal is to derive actionable insights that support Bellabeat’s marketing strategies to further enhance their models, such as the <strong>Leaf</strong> series and <strong>IVY+</strong>.</p>
 </section>
-<section id="data" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Data</h1>
-<p>The dataset comes from <strong>FitBit Fitness Tracker Data</strong> (Kaggle, 2016).<br>
-It includes daily, hourly, and minute-level activity, sleep, and heart rate data.</p>
+<section id="about-the-data" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> About the Data</h1>
+<p>The dataset used in this case study is the <strong>FitBit Fitness Tracker Data</strong> (2016), publicly available on <a href="https://www.kaggle.com/datasets/arashnic/fitbit">Kaggle</a>.</p>
+<p>It includes 30 participants and provides daily activity, sleep tracking, and weight logs. Though limited in sample size and collection year, it is useful for exploratory analysis.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
@@ -192,11 +193,13 @@ $ SedentaryRatio           &lt;dbl&gt; 0.7628083, 0.6074380, 0.6477516, 0.792369
 </section>
 <section id="data-cleaning" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Data Cleaning</h1>
-<p>Steps performed:</p>
+<p>The following steps were applied during data cleaning:</p>
 <ul>
-<li>Checked for null/missing values</li>
-<li>Converted date columns into <code>Date</code> objects</li>
+<li>Checked for missing or null values</li>
+<li>Converted date columns into proper <code>Date</code> format</li>
 <li>Removed duplicates</li>
+<li>Filtered users with complete activity and sleep logs</li>
+<li>Merged relevant tables for deeper insights</li>
 </ul>
 <div class="cell">
 <details open="" class="code-fold">
@@ -211,8 +214,8 @@ $ SedentaryRatio           &lt;dbl&gt; 0.7628083, 0.6074380, 0.6477516, 0.792369
 </section>
 <section id="analysis" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Analysis</h1>
-<section id="daily-activity" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="daily-activity"><span class="header-section-number">4.1</span> Daily Activity</h2>
+<section id="daily-activity-trends" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="daily-activity-trends"><span class="header-section-number">4.1</span> Daily Activity Trends</h2>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
@@ -230,46 +233,75 @@ $ SedentaryRatio           &lt;dbl&gt; 0.7628083, 0.6074380, 0.6477516, 0.792369
 1     7281.        2266.</code></pre>
 </div>
 </div>
+<p><strong>Key Observations:</strong></p>
+<ul>
+<li>The average user logged fewer than the recommended <strong>10,000 steps per day</strong>.</li>
+<li>Sedentary minutes were high across most users, suggesting long inactive periods.</li>
+<li>Calories burned correlated with step count and active minutes.</li>
+</ul>
 </section>
-<section id="sleep-patterns" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="sleep-patterns"><span class="header-section-number">4.2</span> Sleep Patterns</h2>
+<section id="sleep-behavior" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="sleep-behavior"><span class="header-section-number">4.2</span> Sleep Behavior</h2>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sleep_summary <span class="ot">&lt;-</span> sleep_data <span class="sc">%&gt;%</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_minutes_asleep =</span> <span class="fu">mean</span>(TotalMinutesAsleep, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_bedtime =</span> <span class="fu">mean</span>(TotalTimeInBed, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_time_in_bed =</span> <span class="fu">mean</span>(TotalTimeInBed, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>sleep_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
-  avg_minutes_asleep avg_bedtime
-               &lt;dbl&gt;       &lt;dbl&gt;
-1               419.        458.</code></pre>
+  avg_minutes_asleep avg_time_in_bed
+               &lt;dbl&gt;           &lt;dbl&gt;
+1               419.            458.</code></pre>
 </div>
 </div>
+<p><strong>Key Observations:</strong></p>
+<ul>
+<li>Many users were in bed longer than they were asleep, indicating <strong>low sleep efficiency</strong>.</li>
+<li>The average user slept <strong>about 6.9 hours</strong>, below the <strong>CDC’s recommended 7+ hours</strong> for adults.</li>
+</ul>
+</section>
+<section id="weight-and-activity" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="weight-and-activity"><span class="header-section-number">4.3</span> Weight and Activity</h2>
+<ul>
+<li>Fewer participants logged weight data, limiting analysis.</li>
+<li>Those who did often showed irregular tracking behavior.</li>
+<li>There’s potential to <strong>encourage habit-building</strong> for long-term fitness goals.</li>
+</ul>
 </section>
 </section>
 <section id="insights" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Insights</h1>
 <ul>
-<li>Many users are not meeting the <strong>recommended 10,000 steps/day</strong>.</li>
-<li>Sleep quality varies, with significant gaps between time in bed vs.&nbsp;time asleep.</li>
+<li>Users are not consistently meeting physical activity recommendations.</li>
+<li>Sedentary behavior dominates most user profiles.</li>
+<li>Sleep patterns are inconsistent, and sleep tracking could benefit from deeper analysis.</li>
+<li>Data logging (especially weight) is inconsistent, which limits feedback effectiveness.</li>
 </ul>
 </section>
 <section id="recommendations" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Recommendations</h1>
 <ol type="1">
-<li><strong>Integrate reminders</strong> for users to move when sedentary.</li>
-<li><strong>Highlight sleep trends</strong> in Bellabeat apps with daily feedback.</li>
-<li><strong>Expand IVY product line</strong> with pregnancy/sleep health features.</li>
+<li><p><strong>Nutrition &amp; Sugar Intake Logging</strong><br>
+Expand the Bellabeat app to allow <strong>manual logging of nutrition and sugar intake</strong>, helping users monitor how their diet affects their health goals.</p></li>
+<li><p><strong>Integration with Glucose Meters</strong><br>
+Add support for third-party glucose monitoring devices (e.g., <strong>OneTouch Verio</strong>), inspired by existing solutions like <strong>Kaiser Permanente’s KP Health Ally app</strong>. This feature can help diabetic users (like myself) track patterns more holistically.</p></li>
+<li><p><strong>Expanded Pregnancy &amp; Postpartum Support for Ivy+</strong><br>
+Enhance the <strong>IVY+</strong> smart wearable with features tailored to <strong>pregnant and postpartum users</strong>, such as gentle movement goals, hydration reminders, and sleep tracking optimized for these stages of life.</p></li>
+<li><p><strong>Condition-Specific Product Innovations</strong><br>
+Consider designing <strong>specialized Leaf devices</strong> (e.g., <em>Leaf Diabetic</em>) aimed at chronic conditions. These could be developed in collaboration with healthcare providers and even prescribed as part of digital wellness programs.</p></li>
+<li><p><strong>Data-Driven Behavior Nudges</strong><br>
+Incorporate personalized <strong>AI-based nudges</strong> in the Bellabeat ecosystem to encourage positive habits—like hitting step goals, improving sleep hygiene, or managing sugar intake.</p></li>
 </ol>
 </section>
 <section id="conclusion" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> Conclusion</h1>
-<p>This analysis provides actionable insights for Bellabeat to refine its marketing and product strategies, focusing on activity and sleep data.</p>
+<p>While the dataset had limitations (small sample, 2016 data), the findings provide useful direction for Bellabeat’s product and marketing teams.</p>
+<p>By focusing on improving <strong>sleep feedback</strong>, <strong>daily movement</strong>, and <strong>user engagement</strong>, Bellabeat can better tailor its offerings to support women’s health and wellness habits through its smart products.</p>
 </section>
 
 </main>
